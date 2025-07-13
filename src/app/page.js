@@ -31,6 +31,9 @@ import AddItemModal from "@/components/AddItemModal";
 //   </List>
 // );
 
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "https://smarteat-8iec.onrender.com/api";
+
 
 const Home = () => {
   const { user, isSignedIn, isLoaded } = useUser();
@@ -153,7 +156,7 @@ if(!isLoaded) return <PageLoader />;
     try {
       // Send the new item to your backend
       const response = await fetch(
-        `https://smarteat-8iec.onrender.com/api/food_inventory/`,
+        `${API_URL}/food_inventory/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

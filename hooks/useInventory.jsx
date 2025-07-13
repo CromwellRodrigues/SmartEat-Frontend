@@ -12,6 +12,7 @@ export const useInventory = (userId) => {
 
 
   const loadData = async () => {
+      console.log("UserID being used:", userId); 
     if (!userId) {
       setError('User ID is required');
       setLoading(false);
