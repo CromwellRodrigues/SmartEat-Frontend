@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${poppins.variable} antialiased`}>
+        <body className={`${poppins.className} antialiased`}>
 
         <Header />  
           {children}
