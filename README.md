@@ -1,8 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🥦 SmartEat Mobile 🍞
 
-## Getting Started
+Welcome to **SmartEat Mobile** – the app that keeps your kitchen as organised as a British queue and your food fresher than a rainy Tuesday in Manchester! 🇬🇧
 
-First, run the development server:
+---
+
+## 🚀 Getting Started
+
+Fancy a go? Here’s how you can run the app locally (no wellies required):
 
 ```bash
 npm run dev
@@ -14,23 +18,48 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then pop over to [http://localhost:3000](http://localhost:3000) in your browser. If it doesn’t work, try turning it off and on again. 😉
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🥕 Features
 
-## Learn More
+- **Inventory Management:** Keep track of your food stash like a pro. No more finding that mouldy cheese at the back of the fridge!
+- **Wishlist:** Add items you fancy buying. Because who doesn’t love a good list?
+- **Recipes:** (Coming soon!) Save your favourite recipes. Mary Berry would be proud.
+- **Summary Dashboard:** See what’s expiring soon, what’s out of stock, and more. It’s like having your own personal butler, but less chatty.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Editing the App
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Want to tinker? Edit `app/page.js` and watch the magic happen. The page auto-updates as you edit – it’s like wizardry, but with fewer owls.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 Learn More
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs) – For when you want to get serious.
+- [Learn Next.js](https://nextjs.org/learn) – An interactive tutorial, minus the pop quizzes.
+
+---
+
+## 🚢 Deploy on Vercel
+
+Deploying is easier than making a cuppa. Just use [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) and let them do the heavy lifting.
+
+---
+
+## 🧑‍🍳 Contributing
+
+Pull requests are welcome! Bring your best code and your worst puns.
+
+---
+
+## 🏆 Credits
+
+Built with ❤️, ☕, and a dash of code.
+
+---
+
+> “Keep calm and code on.” – Someone, probably
