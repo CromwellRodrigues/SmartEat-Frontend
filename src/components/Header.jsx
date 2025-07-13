@@ -19,10 +19,10 @@ const Header = () => {
             alt="Pantry Pal Logo"
             width={80}
             height={80}
-            className="rounded-full mr-4 inline-block text-xl"
+            className="rounded-full ml-[2rem] mr-4 inline-block text-xl"
             priority // Use priority for faster loading
           />
-          <span className="text-4xl font-bold text-white">Pantry Pal</span>
+          <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Pantry Pal</span>
         </Link>
         
         {/* Authentication Section */}

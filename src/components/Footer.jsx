@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between  bg-green-500 text-white text-2xl">
       
-      <Link href="/summary" className="flex flex-col items-center px-6 ml-[5rem]">
+      <Link href="/summary" className="flex flex-col items-center px-6 ml-[2rem] lg:ml-[5rem]">
       <FontAwesomeIcon icon={faList} className="text-white text-2xl mb-1" />
       <span className="text-white text-xs">Summary</span>
         </Link>
