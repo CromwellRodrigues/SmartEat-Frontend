@@ -51,7 +51,7 @@ const SignInPage = () => {
         {/* Custom Footer */}
         <div className="text-center mt-6">
           <p className="text-sm text-gray-500">
-            Don't have an account?{" "}
+            Don&apos;t have an account?
             <Link
               href="/sign-up"
               className="text-green-600 hover:text-green-700 font-medium"
