@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-export const UpdateItemForm = ({ item, onSubmit }) => {
+export const UpdateItemForm = ({ item, onSubmit, onClose }) => {
   const [storeList, setStoreList] = useState([]);
 
   useEffect(() => {
@@ -49,29 +49,39 @@ const initialValues = {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-          onSubmit={(values) => {
-           // Optionally update store list in localStorage
+      onSubmit={async (values) => {
+        // Optionally update store list in localStorage
         let stores = JSON.parse(localStorage.getItem("stores") || "[]");
         if (values.store && !stores.includes(values.store)) {
           stores.push(values.store);
           localStorage.setItem("stores", JSON.stringify(stores));
-              }
+        }
               
-  // Capitalise category before sending
-      if (values.category) {
-        values.category = values.category.charAt(0).toUpperCase() + values.category.slice(1).toLowerCase();
-      }
-      console.log("UpdateItemForm onSubmit called with:", item.id, typeof item.id, values); // <-- Add this line
+        // Capitalise category before sending
+        if (values.category) {
+          values.category = values.category.charAt(0).toUpperCase() + values.category.slice(1).toLowerCase();
+        }
+        console.log("UpdateItemForm onSubmit called with:", item.id, typeof item.id, values);
 
-        onSubmit(item.id, {
-  food_name: values.food_name,
-  category: values.category,
-  expiry_date: values.expiry_date,
-  quantity: values.quantity,
-  amount: values.amount,
-  store: values.store
-        });
-            // Call editItem from your hook
+        // Await the update and close the form only if successful
+        try {
+          await onSubmit(item.id, {
+            food_name: values.food_name,
+            category: values.category,
+            expiry_date: values.expiry_date,
+            quantity: values.quantity,
+            amount: values.amount,
+            store: values.store
+          });
+            
+          // After successful update, close the form
+          if (typeof onClose === "function") {
+            onClose();
+          }
+          // Call editItem from your hook
+        } catch (error) {
+          console.error("Error updating item:", error);
+        }
       }}
     >
       {({ errors, touched }) => (
