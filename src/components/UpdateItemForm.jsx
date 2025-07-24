@@ -86,10 +86,19 @@ const initialValues = {
     >
       {({ errors, touched }) => (
         <Card className="w-full max-w-md mx-auto mt-2">
-          <CardHeader>
+          <CardHeader className="flex justify-between items-center">
             <CardTitle className="text-2xl mb-4 font-semibold text-center text-green-600">
               UPDATE ITEM
             </CardTitle>
+
+            <button
+      type="button"
+      onClick={onClose}
+      className="text-gray-400 hover:text-red-600 text-xl font-bold ml-2"
+      aria-label="Close"
+    >
+      ×
+    </button>
           </CardHeader>
           <CardContent>
             <Form>

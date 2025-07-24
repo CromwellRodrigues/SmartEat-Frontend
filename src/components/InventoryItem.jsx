@@ -78,7 +78,7 @@ export const InventoryItem = ({ item, deleteItem, editItem }) => {
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Edit Item</DialogTitle>
+            {/* <DialogTitle>Edit Item</DialogTitle> */}
           </DialogHeader>
           <UpdateItemForm
             item={item}
