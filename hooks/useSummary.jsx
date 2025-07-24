@@ -36,7 +36,12 @@ export const useSummary = (userId) => {
                 }
                 const data = await response.json();
                 console.log("📡 API response data:", data);
-                setSummary(data);
+                setSummary({
+  total_expiring_soon: Number(data.total_expiring_soon),
+  total_out_of_stock: Number(data.total_out_of_stock),
+  total_items: Number(data.total_items),
+  total_amount: Number(data.total_amount),
+});
             } catch (err) {
                 console.error("❌ API call failed:", err);
                 setError(err.message);
