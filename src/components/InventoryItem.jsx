@@ -5,6 +5,7 @@ import React from "react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {UpdateItemForm} from "./UpdateItemForm.jsx";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 
 export const InventoryItem = ({ item, deleteItem, editItem }) => {
@@ -76,14 +77,15 @@ export const InventoryItem = ({ item, deleteItem, editItem }) => {
 
          {/* Edit Dialog */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent>
-          <DialogHeader>
-            {/* <DialogTitle>Edit Item</DialogTitle> */}
-          </DialogHeader>
+        <DialogContent className="p-0 bg-transparent shadow-none">
+          <DialogTitle asChild>
+              {/* <DialogTitle>Edit Item</DialogTitle> */}
+               <VisuallyHidden>Update Item</VisuallyHidden>
+          </DialogTitle>
           <UpdateItemForm
             item={item}
             onSubmit={editItem}
-            
+             onClose={() => setEditOpen(false)}
           />
         </DialogContent>
       </Dialog>   

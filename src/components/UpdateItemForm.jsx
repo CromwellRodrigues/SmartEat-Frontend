@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
+
 export const UpdateItemForm = ({ item, onSubmit, onClose }) => {
   const [storeList, setStoreList] = useState([]);
 
@@ -85,20 +86,22 @@ const initialValues = {
       }}
     >
       {({ errors, touched }) => (
-        <Card className="w-full max-w-md mx-auto mt-2">
-          <CardHeader className="flex justify-between items-center">
-            <CardTitle className="text-2xl mb-4 font-semibold text-center text-green-600">
-              UPDATE ITEM
-            </CardTitle>
+        <Card className="bg-green-100  border border-green-300 w-full max-w-md mx-auto mt-2">
 
-            <button
+              <button 
       type="button"
       onClick={onClose}
-      className="text-gray-400 hover:text-red-600 text-xl font-bold ml-2"
+      className="text-gray-400 flex justify-end pr-8 hover:text-red-600 text-xl font-bold ml-2"
       aria-label="Close"
     >
       ×
     </button>
+          <CardHeader className="flex  items-center">
+            <CardTitle className="flex-1 text-2xl mb-4 font-semibold text-center text-green-600">
+              UPDATE AN ITEM
+            </CardTitle>
+
+        
           </CardHeader>
           <CardContent>
             <Form>
