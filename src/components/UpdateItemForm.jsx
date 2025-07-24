@@ -63,7 +63,15 @@ const initialValues = {
       }
       console.log("UpdateItemForm onSubmit called with:", item.id, typeof item.id, values); // <-- Add this line
 
-        onSubmit(item.id, values); // Call editItem from your hook
+        onSubmit(item.id, {
+  food_name: values.food_name,
+  category: values.category,
+  expiry_date: values.expiry_date,
+  quantity: values.quantity,
+  amount: values.amount,
+  store: values.store
+        });
+            // Call editItem from your hook
       }}
     >
       {({ errors, touched }) => (

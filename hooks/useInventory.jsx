@@ -80,7 +80,14 @@ export const useInventory = (userId) => {
       const response = await fetch(`${API_URL}/food_inventory/${itemId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedData),
+        body: JSON.stringify({
+  food_name: updatedData.food_name,
+  category: updatedData.category,
+  expiry_date: updatedData.expiry_date,
+  quantity: updatedData.quantity,
+  amount: updatedData.amount,
+  store: updatedData.store
+}),
       });
       if (!response.ok) throw new Error('Failed to update item');
       const updatedItem = await response.json();
