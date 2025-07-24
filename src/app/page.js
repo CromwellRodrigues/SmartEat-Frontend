@@ -45,6 +45,7 @@ const Home = () => {
     loading: inventoryLoading,
     deleteItem,
     loadData,
+    editItem
   } = useInventory(userId);
 
   // Remove this useEffect since the hook already auto-loads data
@@ -233,6 +234,7 @@ if(!isLoaded) return <PageLoader />;
                     key={item.id}
                     item={item}
                     deleteItem={deleteItem}
+                    editItem = {editItem}
                   />
                 ))}
               </div>

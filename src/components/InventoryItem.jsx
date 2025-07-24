@@ -1,16 +1,16 @@
-import { AlertTriangle, Clock, Trash } from "lucide-react";
+import { AlertTriangle, Clock, Trash, Pencil } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import {UpdateItemForm} from "./UpdateItemForm.jsx";
 
 
-
-export const InventoryItem = ({ item, deleteItem }) => {
+export const InventoryItem = ({ item, deleteItem, editItem }) => {
 
     const [open, setOpen] = React.useState(false);
-
+  const [editOpen, setEditOpen] = React.useState(false);
 
   // Calculate days until expiry
   const today = new Date();
@@ -63,10 +63,38 @@ export const InventoryItem = ({ item, deleteItem }) => {
       }}
       whileHover={{ scale: 1.02, y: -2 }}
     >
-      <Dialog open={open} onOpenChange={setOpen}>
+      <div className="flex justify-between absolute top-2 left-0 w-full px-2 z-10">
+ {/* Edit Button */}
+      <button
+        className=" p-1 rounded bg-white hover:bg-blue-100 shadow"
+        title="Edit item"
+        onClick={() => setEditOpen(true)}
+        type="button"
+      >
+        <Pencil className="w-5 h-5 text-blue-500" />
+      </button>
+
+         {/* Edit Dialog */}
+      <Dialog open={editOpen} onOpenChange={setEditOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit Item</DialogTitle>
+          </DialogHeader>
+          <UpdateItemForm
+            item={item}
+            onSubmit={editItem}
+            
+          />
+        </DialogContent>
+      </Dialog>   
+
+
+   
+{/* delete */}
+<Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <button
-            className="absolute top-2 right-2 p-1 rounded bg-white hover:bg-red-100 shadow"
+            className="p-1 rounded bg-white hover:bg-red-100 shadow"
             title="Delete item"
             onClick={() => setOpen(true)}
             type="button"
@@ -97,7 +125,7 @@ export const InventoryItem = ({ item, deleteItem }) => {
           </DialogFooter>
         </DialogContent>
           </Dialog>
-          
+       </div>     
           
       <div className="space-y-2">
         <div className="flex justify-center">

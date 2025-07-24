@@ -42,8 +42,10 @@ export const useInventory = (userId) => {
 
     
  // Auto-load inventory on mount or when userId changes
- useEffect(() => {
-  loadData();
+  useEffect(() => {
+    if (userId) { 
+    loadData();
+  }
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [userId]);
 
@@ -67,6 +69,28 @@ export const useInventory = (userId) => {
   };
   
 
+
+ // Add editItem here
+  const editItem = async (itemId, updatedData) => {
+    // Capitalise category before sending
+    if (updatedData.category) {
+      updatedData.category = updatedData.category.charAt(0).toUpperCase() + updatedData.category.slice(1).toLowerCase();
+    }
+    try {
+      const response = await fetch(`${API_URL}/food_inventory/${itemId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData),
+      });
+      if (!response.ok) throw new Error('Failed to update item');
+      const updatedItem = await response.json();
+      setInventory(prev =>
+        prev.map(item => (item.id === itemId ? updatedItem.updatedItem : item))
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+  };
     
-  return { inventory, loading, error, deleteItem, loadData };
+  return { inventory, loading, error, deleteItem, loadData, editItem };
 }

@@ -7,7 +7,8 @@ import Link from 'next/link';
 
 const Summary = () => {
   const { user, isLoaded } = useUser();
-  const { summary, loading, error } = useSummary(isLoaded && user ? user.id: null);
+  const userId = isLoaded && user ? user.id : null;
+  const { summary, loading, error } = useSummary(userId);
 
 
   // Add these debug logs
